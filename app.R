@@ -1,6 +1,4 @@
 library(dash)
-library(dashCoreComponents)
-library(dashHtmlComponents)
 library(dashBootstrapComponents)
 library(ggplot2)
 library(plotly)
@@ -12,7 +10,6 @@ df <- readr::read_csv(here::here('data', 'vgsales_2.csv'))
 app$layout(
     dbcContainer(
         list(
-            htmlH1('Dashr heroky deployment'),
             dccGraph(id='plot-area'),
             dccDropdown(
                 id='col-select',
@@ -21,6 +18,7 @@ app$layout(
         )
     )
 )
+
 
 app$callback(
     output('plot-area', 'figure'),
